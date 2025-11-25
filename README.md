@@ -34,19 +34,21 @@ close;
 fs = 50000;
 t = 0:1/fs:0.05;
 
-m1 = 3.7*sin(2*%pi*363*t);
-m2 = 3.8*sin(2*%pi*373*t);
-m3 = 3.9*sin(2*%pi*383*t);
-m4 = 4.0*sin(2*%pi*393*t);
-m5 = 4.1*sin(2*%pi*403*t);
-m6 = 4.2*sin(2*%pi*413*t);
+// Slightly changed amplitudes and frequencies
+m1 = 1.75*sin(2*%pi*165*t);
+m2 = 1.85*sin(2*%pi*175*t);
+m3 = 1.95*sin(2*%pi*185*t);
+m4 = 2.05*sin(2*%pi*195*t);
+m5 = 2.15*sin(2*%pi*205*t);
+m6 = 2.25*sin(2*%pi*215*t);
 
-c1 = cos(2*%pi*2000*t);
-c2 = cos(2*%pi*4000*t);
-c3 = cos(2*%pi*6000*t);
-c4 = cos(2*%pi*8000*t);
-c5 = cos(2*%pi*10000*t);
-c6 = cos(2*%pi*12000*t);
+// Slightly changed carrier frequencies
+c1 = cos(2*%pi*2100*t);
+c2 = cos(2*%pi*4200*t);
+c3 = cos(2*%pi*6100*t);
+c4 = cos(2*%pi*8200*t);
+c5 = cos(2*%pi*10200*t);
+c6 = cos(2*%pi*12200*t);
 
 s1 = m1 .* c1;
 s2 = m2 .* c2;
@@ -64,12 +66,11 @@ r4 = fdm .* c4;
 r5 = fdm .* c5;
 r6 = fdm .* c6;
 
-
-cutoff_hz = 400;
+// Slightly changed cutoff
+cutoff_hz = 420;
 norm_cutoff = cutoff_hz/(fs/2);
 
 M = 101; 
-
 [h, w] = wfir('lp', M, [norm_cutoff, 0], 'hm', 0);  
 
 d1 = conv(r1, h, 'same');
@@ -105,14 +106,18 @@ subplot(3,2,4); plot(t,d4); title("Demod 4");
 subplot(3,2,5); plot(t,d5); title("Demod 5");
 subplot(3,2,6); plot(t,d6); title("Demod 6");
 
+
 ```
 
 ## OUTPUT WAVEFORM
-<img width="1919" height="1117" alt="image" src="https://github.com/user-attachments/assets/2fe9f351-5281-4dd2-a629-8ea237719b54" />
+<img width="1917" height="878" alt="Screenshot 2025-11-18 212926" src="https://github.com/user-attachments/assets/33402cd7-4abd-439b-919a-dbba0c7dac4b" />
 
-<img width="1919" height="1135" alt="image" src="https://github.com/user-attachments/assets/b607d15f-c2c4-4da8-b333-e0bc937919fa" />
+<img width="1919" height="899" alt="Screenshot 2025-11-18 213129" src="https://github.com/user-attachments/assets/5e095c50-cbac-4d04-8fa3-023301301b60" />
 
-<img width="1919" height="1119" alt="image" src="https://github.com/user-attachments/assets/bbea6eab-405e-4da9-865a-236b954739de" />
+<img width="1919" height="869" alt="Screenshot 2025-11-18 213147" src="https://github.com/user-attachments/assets/5622cff0-1d41-4f85-b62d-fc893c6e340b" />
+
+
+
 
 ## CALCULATION
 ![WhatsApp Image 2025-11-22 at 12 33 15 PM](https://github.com/user-attachments/assets/156d0476-6c2d-4323-a3ac-c6a1a96714a5)
