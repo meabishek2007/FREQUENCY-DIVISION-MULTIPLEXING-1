@@ -1,4 +1,4 @@
-# FREQUENCY-DIVISION-MULTIPLEXING
+# FREQUENCY-DIVISION-MULTIPLEXING 
 
 ## AIM
 To implement Frequency Division Multiplexing (FDM) for six different message signals using Scilab, generate the multiplexed signal, and perform demultiplexing to recover all the original message signals. The experiment also includes plotting the message signals, multiplexed signal, and demultiplexed signals.
